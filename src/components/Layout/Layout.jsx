@@ -1,6 +1,8 @@
 import s from './Layout.module.css';
 
-const Layout = ({id, title, descr, urlBg = false, colorBg = false}) => {
+const Layout = ({id, title, descr, urlBg = null, colorBg = null}) => {
+    console.log(`#### id: urlBg: ${urlBg}`);
+    console.log(`#### id: colorBg: ${colorBg}`);
     return (
         <section 
         className={s.root} id={id} 
