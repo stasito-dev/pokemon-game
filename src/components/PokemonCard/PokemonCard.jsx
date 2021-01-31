@@ -7,7 +7,7 @@ const PokemonCard = ({name, id, type, img, values}) => {
     console.log(`testing props: NAME: ${name} ID: ${id} IMG: ${img} TYPE: ${type} VALUES: ${values}`)
     const [isActive, setActive] = useState(false)
     const handleClick = () => {
-        setActive(true);
+        setActive(!isActive);
     }
     return (
         <div className={s.root} onClick={handleClick}>
