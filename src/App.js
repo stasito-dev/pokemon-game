@@ -142,8 +142,16 @@ const POKEMONS = [
   }
 ];
 
-
 const App = () => {
+  console.log(`#### POKEMONS[VALUES] FORM APP.JS: ${POKEMONS[0].values}`);
+
+  console.log(POKEMONS.map(item => <PokemonCard
+    name={item["name"]}
+    key={item["id"]}
+    id={item["id"]}
+    type={item["type"]}
+    img={item["img"]}
+    values={item["values"]} />));
 
   return (
     <>
@@ -165,13 +173,14 @@ Each player has five cards in a hand and the aim is to capture the opponent's ca
         <div className={s.flex}>
           {
             POKEMONS.map(item => <PokemonCard
-              name={item.name}
-              key={item.id}
-              id={item.id}
-              type={item.type}
-              img={item.img}
-              values={item.values} />)
+              name={item["name"]}
+              key={item["id"]}
+              id={item["id"]}
+              type={item["type"]}
+              img={item["img"]}
+              values={item["values"]} />)
           }
+
         </div>
 
       </Layout>
