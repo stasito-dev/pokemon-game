@@ -1,14 +1,16 @@
 import s from './Layout.module.css';
 
 const Layout = ({id, title, urlBg = null, colorBg = null, colorTitle = null, children}) => {
-    console.log(`#### id: urlBg: ${urlBg}`);
-    console.log(`#### id: colorBg: ${colorBg}`);
+
+    const styleSection = {
+        backgroundImage: urlBg && `url(${urlBg})`, 
+        backgroundColor: colorBg && `${colorBg}`
+    }
+
     return (
         <section 
-
         className={s.root} id={id} 
-        style={{backgroundImage: `url(${urlBg})`, 
-        backgroundColor: `${colorBg}`}}>
+        style={styleSection}>
             <div className={s.wrapper}>
                 <article>
                     <div className={s.title}>

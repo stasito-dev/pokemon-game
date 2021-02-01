@@ -3,12 +3,12 @@ import s from './PokemonCard.module.css';
 import cardBackSide from './assets/img/card-back-side.jpeg';
 
 const PokemonCard = ({name, id, type, img, values}) => {
-
-    console.log(`testing props: NAME: ${name} ID: ${id} IMG: ${img} TYPE: ${type} VALUES: ${values}`)
+    
     const [isActive, setActive] = useState(false)
     const handleClick = () => {
-        setActive(!isActive);
+        setActive(prevState => !prevState)
     }
+
     return (
         <div className={s.root} onClick={handleClick}>
             <div className={`${s.pokemonCard} ${isActive ? s.active : ''}`}>
