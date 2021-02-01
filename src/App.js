@@ -1,3 +1,4 @@
+
 import Header from './components/Header/Header';
 import Layout from './components/Layout/Layout';
 import Footer from './components/Footer/Footer';
@@ -5,7 +6,6 @@ import background_1 from './assets/img/background/bg1.jpeg';
 import background_3 from './assets/img/background/bg3.jpeg';
 import PokemonCard from './components/PokemonCard/PokemonCard';
 import POKEMONS from './assets/data/pokemons.json'
-
 import './App.css';
 
 const App = () => {
@@ -37,7 +37,6 @@ Each player has five cards in a hand and the aim is to capture the opponent's ca
               img={item.img}
               values={item.values} />)
           }
-
         </div>
 
       </Layout>
