@@ -17,7 +17,6 @@ code {
   font-size: 50px;
 }
 
-```css
 *,
 *::before,
 *::after,
@@ -53,4 +52,3 @@ a:hover,
 a:active {
     color: #f300b4;
 }
-```
