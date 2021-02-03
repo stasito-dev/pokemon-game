@@ -3,15 +3,13 @@ import Menu from "../Menu"
 import Navbar from "../Navbar"
 
 const MenuHeader = () => {
-    const [isActive, setActive] = useState(true);
-    const handleToggleActive = (isActive, setActive) => {
-        console.log('####: <MenuHeader />');
-        setActive(!isActive);
-    }
+    const [open, setOpen] = useState(false);
+
     return (
+        // TODO: wrap both components in a div to add functionality that closes the menu when clicking anywhere on the screen
         <>
-            <Menu onToggleActive={() => handleToggleActive(isActive, setActive)} />
-            <Navbar onToggleActive={() => handleToggleActive(isActive, setActive)} />
+            <Navbar open={open} setOpen={setOpen} />
+            <Menu open={open} />
         </>
     )
 }

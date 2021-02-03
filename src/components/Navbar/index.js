@@ -1,26 +1,15 @@
 import cn from 'classnames';
-import { useState } from 'react';
 import s from './style.module.css';
 
-const Navbar = ({ onToggleActive }) => {
-    const [isActive, setActive] = useState(false);
-    // const activeClass = s.active;
-    // const styleMenuButton = s.menuButton;
+const Navbar = ({ open, setOpen }) => {
 
-    const handleClick = (e) => {
-        console.log('####: <Navbar />')
-        setActive(!isActive);
-        onToggleActive && onToggleActive((isActive, setActive) => setActive(!isActive));
-
-    }
     return (
         <nav id="navbar">
             <div className={s.navWrapper}>
                 <p className={s.brand}>
                     LOGO
                 </p>
-                {/* cn(s.menuButton, s.active) */}
-                <a href="#menu" onClick={handleClick} className={cn(s.menuButton, (isActive && s.active))}>
+                <a href="#menu" onClick={() => setOpen(!open)} className={cn(s.menuButton, (open && s.active) )}>
                     <span />
                 </a>
             </div>

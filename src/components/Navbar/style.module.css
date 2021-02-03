@@ -28,8 +28,9 @@
 
 /***** Menu Button *****/
 .menuButton {
+    display: inline-block;
   position: relative;
-  background-color: cornflowerblue;
+  top: -10px;
   border-color: #181d23;
   height: 22px;
   width: 30px;
