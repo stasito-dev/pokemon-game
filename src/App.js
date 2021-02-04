@@ -1,57 +1,44 @@
-import Header from './components/Header/Header';
-import Layout from './components/Layout/Layout';
-import Footer from './components/Footer/Footer';
-import background_1 from './assets/img/background/bg1.jpeg';
-import background_3 from './assets/img/background/bg3.jpeg';
-import PokemonCard from './components/PokemonCard/PokemonCard';
-import POKEMONS from './assets/data/pokemons.json'
+import { useRouteMatch, Route, Switch, Redirect } from 'react-router-dom';
+import cn from 'classnames';
 
-import './App.css';
+import Footer from './components/Footer/Footer';
+import MenuHeader from './components/MenuHeader';
+import GamePage from './routes/Game';
+import HomePage from './routes/Home';
+
+import s from './style.module.css';
 
 const App = () => {
-
+  const match = useRouteMatch('/')
+  console.log('####: match', match)
   return (
-    <>
-      <Header title="POKEMON BATTLE" descr="This is simple triad card game" />
+    <Switch>
+      <Route path="/404" render={() => (
+        <h1>404 Not Found</h1>
+      )} />
+      <Route>
+        <>
+          <MenuHeader bgActive={!match.isExact} />
+          <div className={cn(s.wrap, {
+            [s.isHomePage]: match.isExact
+          })}>
+            <Switch>
+              <Route path="/" exact component={HomePage} />
+              <Route path="/home" component={HomePage} />
+              <Route path="/game" component={GamePage} />
+              <Route path="/about" render={() => (
+                <h1>This is Page ABOUT!</h1>
+              )} />
+              <Route render={() => (
+                <Redirect to="/404" />
+              )} />
+            </Switch>
+          </div>
+          <Footer />
+        </>
+      </Route>
 
-      <Layout id='rules' title='Rules' urlBg={background_1}>
-
-        <p>In the game two players face off against one another, one side playing as "blue", the other as "red" on a 3x3 grid.
-Each player has five cards in a hand and the aim is to capture the opponent's cards by turning them into the player's own color of red or blue.</p>
-        <p>To win, a majority of the total ten cards played (including the one card that is not placed on the board) must be of the player's card color. To do this, the player must capture cards by placing a card adjacent to an opponent's card whereupon the 'ranks' of the sides where the two cards touch will be compared. If the rank of the opponent's card is higher than the player's card, the player's card will be captured and turned into the opponent's color. If the player's rank is higher, the opponent's card will be captured and changed into the player's color instead.</p>
-
-      </Layout>
-
-      <Layout id='cards' title='Cards' colorTitle='#fefefe' colorBg='#51c2d575'>
-        <p>In the game two players face off against one another, one side playing as "blue", the other as "red" on a 3x3 grid.
-Each player has five cards in a hand and the aim is to capture the opponent's cards by turning them into the player's own color of red or blue.</p>
-        <p>To win, a majority of the total ten cards played (including the one card that is not placed on the board) must be of the player's card color. To do this, the player must capture cards by placing a card adjacent to an opponent's card whereupon the 'ranks' of the sides where the two cards touch will be compared. If the rank of the opponent's card is higher than the player's card, the player's card will be captured and turned into the opponent's color. If the player's rank is higher, the opponent's card will be captured and changed into the player's color instead.</p>
-
-        <div className="flex">
-          {
-            POKEMONS.map(item => <PokemonCard
-              name={item.name}
-              key={item.id}
-              id={item.id}
-              type={item.type}
-              img={item.img}
-              values={item.values} />)
-          }
-
-        </div>
-
-      </Layout>
-
-      <Layout id='about' title='Full Rules' urlBg={background_3}>
-
-        <p>In the game two players face off against one another, one side playing as "blue", the other as "red" on a 3x3 grid.
-Each player has five cards in a hand and the aim is to capture the opponent's cards by turning them into the player's own color of red or blue.</p>
-        <p>To win, a majority of the total ten cards played (including the one card that is not placed on the board) must be of the player's card color. To do this, the player must capture cards by placing a card adjacent to an opponent's card whereupon the 'ranks' of the sides where the two cards touch will be compared. If the rank of the opponent's card is higher than the player's card, the player's card will be captured and turned into the opponent's color. If the player's rank is higher, the opponent's card will be captured and changed into the player's color instead.</p>
-
-      </Layout>
-
-      <Footer />
-    </>
+    </Switch>
   )
 }
 
