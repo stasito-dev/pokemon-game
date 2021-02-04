@@ -16,7 +16,7 @@ const HomePage = ({ onChangePage }) => {
 
     return (
         <>
-            <MenuHeader />
+            {/* <MenuHeader /> */}
             <Header
                 title="POKEMON BATTLE"
                 descr="This is simple triad card game"
@@ -58,7 +58,7 @@ Each player has five cards in a hand and the aim is to capture the opponent's ca
 
             </Layout>
 
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }

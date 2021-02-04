@@ -1,3 +1,7 @@
+p {
+    margin: 0;
+}
+
 #navbar {
   position: fixed;
   z-index: 9999;
@@ -28,7 +32,6 @@
 
 /***** Menu Button *****/
 .menuButton {
-    display: inline-block;
   position: relative;
   top: -10px;
   border-color: #181d23;
